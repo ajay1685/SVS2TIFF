@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SVS2TIFF", "SVS2TIFF\SVS2TIFF.vbproj", "{583D65FE-3A5E-4594-87E6-8385BE14AFF9}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SVS2TIFF-Setup", "SVS2TIFF-Setup\SVS2TIFF-Setup.wixproj", "{484BF462-BEC0-4175-B06C-25A9311A9CAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7BA81B72-86B7-4610-B863-A0C3702B6A55}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Debug|x86.Build.0 = Debug|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Release|x86.ActiveCfg = Release|Any CPU
+		{583D65FE-3A5E-4594-87E6-8385BE14AFF9}.Release|x86.Build.0 = Release|Any CPU
+		{484BF462-BEC0-4175-B06C-25A9311A9CAE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{484BF462-BEC0-4175-B06C-25A9311A9CAE}.Debug|x86.ActiveCfg = Debug|x86
+		{484BF462-BEC0-4175-B06C-25A9311A9CAE}.Debug|x86.Build.0 = Debug|x86
+		{484BF462-BEC0-4175-B06C-25A9311A9CAE}.Release|Any CPU.ActiveCfg = Release|x86
+		{484BF462-BEC0-4175-B06C-25A9311A9CAE}.Release|x86.ActiveCfg = Release|x86
+		{484BF462-BEC0-4175-B06C-25A9311A9CAE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {034C310A-B91F-47D7-8C93-15881389BC4B}
+	EndGlobalSection
+EndGlobal

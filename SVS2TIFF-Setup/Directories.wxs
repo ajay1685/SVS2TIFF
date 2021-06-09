@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <!-- Directories to create for SVS2TIFF. -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+
+
+      <!--Program Files Folder-->
+      <?if $(var.Platform)=x64 ?>
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="APPLICATIONFOLDER" Name="!(loc.Company)">
+          <Directory Id="APPFOLDER" Name="!(loc.ProductNameFolder)"/>
+        </Directory>
+      </Directory>
+      <?else?>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="APPLICATIONFOLDER" Name="!(loc.Company)">
+          <Directory Id="APPFOLDER" Name="!(loc.ProductNameFolder)"/>
+        </Directory>
+      </Directory>
+      <?endif?>
+
+      <!-- Start Menu -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="InstallProgramMenuFolder" Name="!(loc.ProductNameFolder)"></Directory>
+      </Directory>
+      
+      <!-- Desktop folder-->
+      <Directory Id="DesktopFolder" Name="Desktop" />
+
+      <!-- ProgramData folder -->
+      <Directory Id="CommonAppDataFolder">
+        <Directory Id="APPLICATIONDATADIRECTORY" Name="!(loc.Company)">
+          <Directory Id="LogsDir" Name="Logs" />
+        </Directory>
+      </Directory>
+
+
+    </Directory>
+	</Fragment>
+</Wix>

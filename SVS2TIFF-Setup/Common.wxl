@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+	
+  <String Id="Company">SVS2TIFF</String>
+
+  <String Id="ProductName">SVS2TIFF</String>
+  <String Id="ProductName_x86">SVS2TIFF (32bit)</String>
+  <String Id="ProductName_x64">SVS2TIFF</String>
+
+  <String Id="ProductNameFolder">SVS2TIFF</String>
+
+  <String Id="Description">A tool to batch convert Aperio SVS files to flat TIFF files.</String>
+  <String Id="Comments">This program uses libvips, openslide and NetVips for reading, decompressing and writting TIFF files</String>
+  <String Id="Keywords">SVS to TIFF converter, SCN to TIFF converter, Batch convert Aperio SVS files to TIFF files, Aperio SVS files, Leica SCN files</String>
+
+  <String Id="DowngradeErrorMessage">A newer version of SVS2TIFF is already installed.</String>
+
+  <String Id="Language">1033</String>
+  
+  
+  
+</WixLocalization>

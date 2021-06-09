@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<!-- TODO: Put your code here. -->
+    <!-- Resource Tracker Components -->
+    <!-- Resource Tracker Components -->
+    <ComponentGroup Id="ProductComponents">
+
+      <ComponentRef Id ="ComponentAppFolder"/>
+      <ComponentGroupRef Id="AppFolderContent"/>
+      <ComponentRef Id="MainAppShortcut"/>
+
+
+    </ComponentGroup>
+
+    <!-- Create directory for the application-->
+    <Component Id="ComponentAppFolder" Directory="APPLICATIONFOLDER" Guid="{E108C28F-875D-4AC8-A002-3C8CDFA2C1DD}" KeyPath="yes">
+      <CreateFolder Directory="APPFOLDER"/>
+    </Component>
+
+    <!-- Include files from the project output-->
+    <ComponentGroup Id="AppFolderContent">
+      <Component Id="SVS2TIFF.exe.config" Directory="APPFOLDER" Guid="{5E528743-B828-4287-A909-453D8C3DFFFC}">
+        <File Id="SVS2TIFF.exe.config" Name="SVS2TIFF.exe.config" Source="$(var.BasePath)\SVS2TIFF.exe.config" />
+      </Component>
+      <Component Id="SVS2TIFF.exe" Directory="APPFOLDER" Guid="{080806C1-0C51-4446-A3B4-51FAE820A044}">
+        <File Id="SVS2TIFF.exe" Name="SVS2TIFF.exe" Source="$(var.BasePath)\SVS2TIFF.exe" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- Shortcut to main application -->
+    <Component Id="MainAppShortcut" Directory="InstallProgramMenuFolder" Guid="{9C156396-0D99-44FD-ADC1-2385E7C94407}">
+      <Shortcut Id="MainAppShortcut"
+                Name="!(loc.ProductName_$(var.Platform))"
+                Target="[APPFOLDER]SVS2TIFF.exe"
+                Directory="InstallProgramMenuFolder"
+                WorkingDirectory="APPFOLDER"
+                Icon="icon.ico"/>
+      <!-- Our unique key for this application shortcut -->
+      <RegistryValue Id="RegShortcutKey"
+                     Root="HKCU"
+                     Key="SOFTWARE\!(loc.Company)\!(loc.ProductNameFolder)"
+                     Name="StartMenuShortcut"
+                     Value="1" Type="integer"
+                     KeyPath="yes" />
+      <!--Remove start menu items -->
+      <RemoveFolder Id="RemoveStartMenu" Directory="InstallProgramMenuFolder" On="uninstall" />
+    </Component>
+
+	</Fragment>
+</Wix>
