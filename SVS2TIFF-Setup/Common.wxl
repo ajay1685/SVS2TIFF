@@ -9,14 +9,12 @@
 
   <String Id="ProductNameFolder">SVS2TIFF</String>
 
-  <String Id="Description">A tool to batch convert Aperio SVS files to flat TIFF files.</String>
-  <String Id="Comments">This program uses libvips, openslide and NetVips for reading, decompressing and writting TIFF files</String>
-  <String Id="Keywords">SVS to TIFF converter, SCN to TIFF converter, Batch convert Aperio SVS files to TIFF files, Aperio SVS files, Leica SCN files</String>
+  <String Id="Description">A tool to batch convert Aperio SVS files to TIFF or OME-TIFF files.</String>
+  <String Id="Comments">This program uses libvips, openslide, openJPEG and NetVips for reading, decompressing and writting TIFF files</String>
+  <String Id="Keywords">SVS to TIFF converter, SCN to TIFF converter, Batch convert Aperio SVS files to TIFF files, Aperio SVS to OME-TIF, Leica SCN files</String>
 
   <String Id="DowngradeErrorMessage">A newer version of SVS2TIFF is already installed.</String>
 
   <String Id="Language">1033</String>
-  
-  
-  
+
 </WixLocalization>

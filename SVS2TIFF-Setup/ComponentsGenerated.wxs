@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="libcairo_2.dll" Guid="{FC9E44E9-EA85-4FB1-A982-42A86B4615D1}">
+                <File Id="libcairo_2.dll" KeyPath="yes" Source="$(var.BasePath)\libcairo-2.dll" />
+            </Component>
+            <Component Id="libcfitsio.dll" Guid="{62FA1EBB-C058-48B1-8E17-85A459AD8843}">
+                <File Id="libcfitsio.dll" KeyPath="yes" Source="$(var.BasePath)\libcfitsio.dll" />
+            </Component>
+            <Component Id="libde265.dll" Guid="{B8FA2163-9005-4843-899F-A1DCD3F926A0}">
+                <File Id="libde265.dll" KeyPath="yes" Source="$(var.BasePath)\libde265.dll" />
+            </Component>
+            <Component Id="libexif_12.dll" Guid="{B3053563-4BB2-4060-AFA6-18374D2E12D9}">
+                <File Id="libexif_12.dll" KeyPath="yes" Source="$(var.BasePath)\libexif-12.dll" />
+            </Component>
+            <Component Id="libexpat_1.dll" Guid="{D37129FE-8C42-486A-9737-C45E2B177D40}">
+                <File Id="libexpat_1.dll" KeyPath="yes" Source="$(var.BasePath)\libexpat-1.dll" />
+            </Component>
+            <Component Id="libffi_7.dll" Guid="{4A9D09B8-9AE2-4007-8ADF-37A14DD7EF1A}">
+                <File Id="libffi_7.dll" KeyPath="yes" Source="$(var.BasePath)\libffi-7.dll" />
+            </Component>
+            <Component Id="libfftw3_3.dll" Guid="{296FD4DB-FCB8-4424-9B7F-9E774FEDDAC1}">
+                <File Id="libfftw3_3.dll" KeyPath="yes" Source="$(var.BasePath)\libfftw3-3.dll" />
+            </Component>
+            <Component Id="libfontconfig_1.dll" Guid="{6D76BB5C-9347-4E3E-AADC-C621D202B115}">
+                <File Id="libfontconfig_1.dll" KeyPath="yes" Source="$(var.BasePath)\libfontconfig-1.dll" />
+            </Component>
+            <Component Id="libfreetype_6.dll" Guid="{75600817-AFCA-4DAE-8A67-9CBD6EBC1419}">
+                <File Id="libfreetype_6.dll" KeyPath="yes" Source="$(var.BasePath)\libfreetype-6.dll" />
+            </Component>
+            <Component Id="libfribidi_0.dll" Guid="{53035537-6E81-4EB8-8CF9-3FA0E4A1DCA8}">
+                <File Id="libfribidi_0.dll" KeyPath="yes" Source="$(var.BasePath)\libfribidi-0.dll" />
+            </Component>
+            <Component Id="libgcc_s_seh_1.dll" Guid="{2A414643-39F5-416D-A68A-E68D970D56AB}">
+                <File Id="libgcc_s_seh_1.dll" KeyPath="yes" Source="$(var.BasePath)\libgcc_s_seh-1.dll" />
+            </Component>
+            <Component Id="libgdk_pixbuf_2.0_0.dll" Guid="{43E7F85E-84CF-426C-A4C4-7021DC127733}">
+                <File Id="libgdk_pixbuf_2.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libgdk_pixbuf-2.0-0.dll" />
+            </Component>
+            <Component Id="libgif_7.dll" Guid="{0C8D45E3-24E0-4844-B39D-AFDE6664C052}">
+                <File Id="libgif_7.dll" KeyPath="yes" Source="$(var.BasePath)\libgif-7.dll" />
+            </Component>
+            <Component Id="libgio_2.0_0.dll" Guid="{C69B1B28-B777-4AEB-A370-507B6EFCC863}">
+                <File Id="libgio_2.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libgio-2.0-0.dll" />
+            </Component>
+            <Component Id="libglib_2.0_0.dll" Guid="{F8B7D74D-3DF7-4E49-8F87-0A581B3DAA72}">
+                <File Id="libglib_2.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libglib-2.0-0.dll" />
+            </Component>
+            <Component Id="libgmodule_2.0_0.dll" Guid="{B1BB0B4C-236A-46BC-99BE-A4C898F70E24}">
+                <File Id="libgmodule_2.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libgmodule-2.0-0.dll" />
+            </Component>
+            <Component Id="libgobject_2.0_0.dll" Guid="{7EB349E1-FD15-4621-A1F5-809B005806F6}">
+                <File Id="libgobject_2.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libgobject-2.0-0.dll" />
+            </Component>
+            <Component Id="libgsf_1_114.dll" Guid="{46402A12-3DD9-4028-BEEE-2E5149CF105E}">
+                <File Id="libgsf_1_114.dll" KeyPath="yes" Source="$(var.BasePath)\libgsf-1-114.dll" />
+            </Component>
+            <Component Id="libharfbuzz_0.dll" Guid="{FB9FD058-093E-4A1F-906B-129B38AE51E4}">
+                <File Id="libharfbuzz_0.dll" KeyPath="yes" Source="$(var.BasePath)\libharfbuzz-0.dll" />
+            </Component>
+            <Component Id="libheif.dll" Guid="{DC838802-B80F-4FD1-9D9E-920B0BE67CFA}">
+                <File Id="libheif.dll" KeyPath="yes" Source="$(var.BasePath)\libheif.dll" />
+            </Component>
+            <Component Id="libIlmImf_2_5.dll" Guid="{9A9EDABC-D231-405F-AB14-C8804AF5A085}">
+                <File Id="libIlmImf_2_5.dll" KeyPath="yes" Source="$(var.BasePath)\libIlmImf-2_5.dll" />
+            </Component>
+            <Component Id="libjpeg_62.dll" Guid="{8B8EF1C0-A306-4E06-915E-7CAA23142D30}">
+                <File Id="libjpeg_62.dll" KeyPath="yes" Source="$(var.BasePath)\libjpeg-62.dll" />
+            </Component>
+            <Component Id="liblcms2_2.dll" Guid="{5699559C-FC9E-4637-A178-277FA1C655F9}">
+                <File Id="liblcms2_2.dll" KeyPath="yes" Source="$(var.BasePath)\liblcms2-2.dll" />
+            </Component>
+            <Component Id="libMagickCore_6.Q16_6.dll" Guid="{9F70F1F4-5820-4769-98F8-F3EEAAAADE21}">
+                <File Id="libMagickCore_6.Q16_6.dll" KeyPath="yes" Source="$(var.BasePath)\libMagickCore-6.Q16-6.dll" />
+            </Component>
+            <Component Id="libmatio_11.dll" Guid="{C47B038B-7402-4CE3-8324-4B2BC2627FF5}">
+                <File Id="libmatio_11.dll" KeyPath="yes" Source="$(var.BasePath)\libmatio-11.dll" />
+            </Component>
+            <Component Id="libopenjp2.dll" Guid="{1173954B-F935-41DD-A2E9-F6355FD1C766}">
+                <File Id="libopenjp2.dll" KeyPath="yes" Source="$(var.BasePath)\libopenjp2.dll" />
+            </Component>
+            <Component Id="libopenslide_0.dll" Guid="{95EA8479-8A83-4EBE-9C20-E8C311214636}">
+                <File Id="libopenslide_0.dll" KeyPath="yes" Source="$(var.BasePath)\libopenslide-0.dll" />
+            </Component>
+            <Component Id="liborc_0.4_0.dll" Guid="{4C6210E0-861B-4E78-BD97-E72CFEA7FA65}">
+                <File Id="liborc_0.4_0.dll" KeyPath="yes" Source="$(var.BasePath)\liborc-0.4-0.dll" />
+            </Component>
+            <Component Id="libpango_1.0_0.dll" Guid="{38240FA3-F09E-455B-83DD-68A24813044E}">
+                <File Id="libpango_1.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libpango-1.0-0.dll" />
+            </Component>
+            <Component Id="libpangocairo_1.0_0.dll" Guid="{E1CE85B5-1255-472E-B4B1-63C208D72F0E}">
+                <File Id="libpangocairo_1.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libpangocairo-1.0-0.dll" />
+            </Component>
+            <Component Id="libpangoft2_1.0_0.dll" Guid="{E139254B-663E-4AF9-9443-8E01FA3CF2AB}">
+                <File Id="libpangoft2_1.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libpangoft2-1.0-0.dll" />
+            </Component>
+            <Component Id="libpangowin32_1.0_0.dll" Guid="{7CAB4017-746C-4610-8E79-8B589F97B475}">
+                <File Id="libpangowin32_1.0_0.dll" KeyPath="yes" Source="$(var.BasePath)\libpangowin32-1.0-0.dll" />
+            </Component>
+            <Component Id="libpixman_1_0.dll" Guid="{FBC47812-E745-47B7-AF65-4180A4DAEDA2}">
+                <File Id="libpixman_1_0.dll" KeyPath="yes" Source="$(var.BasePath)\libpixman-1-0.dll" />
+            </Component>
+            <Component Id="libpng16_16.dll" Guid="{B1A0DC1F-7223-4CD7-BB56-3EC310E9DFBE}">
+                <File Id="libpng16_16.dll" KeyPath="yes" Source="$(var.BasePath)\libpng16-16.dll" />
+            </Component>
+            <Component Id="libpoppler_105.dll" Guid="{9672FFB5-81FB-44BA-927E-9B77713F6E44}">
+                <File Id="libpoppler_105.dll" KeyPath="yes" Source="$(var.BasePath)\libpoppler-105.dll" />
+            </Component>
+            <Component Id="libpoppler_glib_8.dll" Guid="{CF78E3C4-FD34-418D-8CCB-7374C7BEE882}">
+                <File Id="libpoppler_glib_8.dll" KeyPath="yes" Source="$(var.BasePath)\libpoppler-glib-8.dll" />
+            </Component>
+            <Component Id="librsvg_2_2.dll" Guid="{ED63BCA2-CEE9-47D8-8372-81C09186B5C1}">
+                <File Id="librsvg_2_2.dll" KeyPath="yes" Source="$(var.BasePath)\librsvg-2-2.dll" />
+            </Component>
+            <Component Id="libspng_0.dll" Guid="{62ADF091-63F8-44C5-BB4F-51C26203DBB1}">
+                <File Id="libspng_0.dll" KeyPath="yes" Source="$(var.BasePath)\libspng-0.dll" />
+            </Component>
+            <Component Id="libsqlite3_0.dll" Guid="{9820AC8B-479E-4B79-962F-614566585BBF}">
+                <File Id="libsqlite3_0.dll" KeyPath="yes" Source="$(var.BasePath)\libsqlite3-0.dll" />
+            </Component>
+            <Component Id="libstdc___6.dll" Guid="{85CD5D20-E08E-4061-A53B-80C12EDBAB16}">
+                <File Id="libstdc___6.dll" KeyPath="yes" Source="$(var.BasePath)\libstdc++-6.dll" />
+            </Component>
+            <Component Id="libtiff_5.dll" Guid="{0E7FCDF3-0806-46AE-B06F-9A7CFF8A7B6A}">
+                <File Id="libtiff_5.dll" KeyPath="yes" Source="$(var.BasePath)\libtiff-5.dll" />
+            </Component>
+            <Component Id="libvips_42.dll" Guid="{A5C1E968-3B62-4970-89DB-A6287B352023}">
+                <File Id="libvips_42.dll" KeyPath="yes" Source="$(var.BasePath)\libvips-42.dll" />
+            </Component>
+            <Component Id="libvips_cpp_42.dll" Guid="{F59EDFF2-31A4-4D87-907C-8164155C4D9E}">
+                <File Id="libvips_cpp_42.dll" KeyPath="yes" Source="$(var.BasePath)\libvips-cpp-42.dll" />
+            </Component>
+            <Component Id="libwebp_7.dll" Guid="{3A238C5A-9FBC-4C5C-9127-79E73BB1637C}">
+                <File Id="libwebp_7.dll" KeyPath="yes" Source="$(var.BasePath)\libwebp-7.dll" />
+            </Component>
+            <Component Id="libwebpdemux_2.dll" Guid="{636D9E5E-3F8A-47AB-85A0-8DD4E40413A9}">
+                <File Id="libwebpdemux_2.dll" KeyPath="yes" Source="$(var.BasePath)\libwebpdemux-2.dll" />
+            </Component>
+            <Component Id="libwebpmux_3.dll" Guid="{32795894-4C54-4B88-8322-5C02515E3467}">
+                <File Id="libwebpmux_3.dll" KeyPath="yes" Source="$(var.BasePath)\libwebpmux-3.dll" />
+            </Component>
+            <Component Id="libwinpthread_1.dll" Guid="{BBBE0E9A-84C1-4A1F-BB39-B1F605CDA9FB}">
+                <File Id="libwinpthread_1.dll" KeyPath="yes" Source="$(var.BasePath)\libwinpthread-1.dll" />
+            </Component>
+            <Component Id="libxml2_2.dll" Guid="{B13D40CE-1B99-4EDA-9693-3A3E01A805AB}">
+                <File Id="libxml2_2.dll" KeyPath="yes" Source="$(var.BasePath)\libxml2-2.dll" />
+            </Component>
+            <Component Id="libz1.dll" Guid="{C9AB6B9F-8290-40A3-89DB-2918787FAF61}">
+                <File Id="libz1.dll" KeyPath="yes" Source="$(var.BasePath)\libz1.dll" />
+            </Component>
+            <Component Id="NetVips.dll" Guid="{EE290C02-3922-4529-9FE4-479C5D678AE5}">
+                <File Id="NetVips.dll" KeyPath="yes" Source="$(var.BasePath)\NetVips.dll" />
+            </Component>
+            <Component Id="NetVips.xml" Guid="{4EE4C9BF-421D-4858-84AD-0A60EEF316A3}">
+                <File Id="NetVips.xml" KeyPath="yes" Source="$(var.BasePath)\NetVips.xml" />
+            </Component>
+            <Component Id="SVS2TIFF.exe" Guid="{F26BC402-1674-4A20-AB67-C1845D608CB6}">
+                <File Id="SVS2TIFF.exe" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe" />
+            </Component>
+            <Component Id="SVS2TIFF.exe.config" Guid="{06996724-67E4-47F6-AE25-F3B65736CC05}">
+                <File Id="SVS2TIFF.exe.config" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe.config" />
+            </Component>
+            <Component Id="SVS2TIFF.pdb" Guid="{06415C1F-B13B-4CC3-B031-205C14C0BA90}">
+                <File Id="SVS2TIFF.pdb" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.pdb" />
+            </Component>
+            <Component Id="SVS2TIFF.xml" Guid="{2AA1031D-CE21-4A0D-9CE4-13E836E4E613}">
+                <File Id="SVS2TIFF.xml" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.xml" />
+            </Component>
+            <Component Id="System.Buffers.dll" Guid="{0D470F55-842B-4E30-A123-9F11B319FDE7}">
+                <File Id="System.Buffers.dll" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.dll" />
+            </Component>
+            <Component Id="System.Buffers.xml" Guid="{6A3DBE4D-3B7C-4EEF-B9FF-B3DFDE8D3A71}">
+                <File Id="System.Buffers.xml" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.xml" />
+            </Component>
+            <Component Id="System.Memory.dll" Guid="{81E5B4B5-F9B7-4636-8829-AEF2801303F9}">
+                <File Id="System.Memory.dll" KeyPath="yes" Source="$(var.BasePath)\System.Memory.dll" />
+            </Component>
+            <Component Id="System.Memory.xml" Guid="{A8661C79-296A-4188-A4BE-86287E088818}">
+                <File Id="System.Memory.xml" KeyPath="yes" Source="$(var.BasePath)\System.Memory.xml" />
+            </Component>
+            <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="{4308906D-BF9B-4B1F-803A-B12679251547}">
+                <File Id="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="$(var.BasePath)\System.Runtime.CompilerServices.Unsafe.dll" />
+            </Component>
+            <Component Id="System.Runtime.CompilerServices.Unsafe.xml" Guid="{914E145D-B4FA-48F8-A75D-21DCEF2BAE51}">
+                <File Id="System.Runtime.CompilerServices.Unsafe.xml" KeyPath="yes" Source="$(var.BasePath)\System.Runtime.CompilerServices.Unsafe.xml" />
+            </Component>
+            <Component Id="vips.exe" Guid="{19D5A371-398B-4747-A626-2D02E5AFBB18}">
+                <File Id="vips.exe" KeyPath="yes" Source="$(var.BasePath)\vips.exe" />
+            </Component>
+            <Component Id="vipsedit.exe" Guid="{BA1ABFC5-6EA7-4CC1-B9C3-A53219AF43A2}">
+                <File Id="vipsedit.exe" KeyPath="yes" Source="$(var.BasePath)\vipsedit.exe" />
+            </Component>
+            <Component Id="vipsheader.exe" Guid="{4031CD28-2FEB-4D45-9A22-B84D8EB6B6C7}">
+                <File Id="vipsheader.exe" KeyPath="yes" Source="$(var.BasePath)\vipsheader.exe" />
+            </Component>
+            <Component Id="vipsprofile" Guid="{0D8F962F-82B3-464C-A5E7-C687F2D5268B}">
+                <File Id="vipsprofile" KeyPath="yes" Source="$(var.BasePath)\vipsprofile" />
+            </Component>
+            <Component Id="vipsthumbnail.exe" Guid="{E32EF426-9504-4A1D-ACF3-B658A60C8E4F}">
+                <File Id="vipsthumbnail.exe" KeyPath="yes" Source="$(var.BasePath)\vipsthumbnail.exe" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PublishedComponents">
+            <ComponentRef Id="libcairo_2.dll" />
+            <ComponentRef Id="libcfitsio.dll" />
+            <ComponentRef Id="libde265.dll" />
+            <ComponentRef Id="libexif_12.dll" />
+            <ComponentRef Id="libexpat_1.dll" />
+            <ComponentRef Id="libffi_7.dll" />
+            <ComponentRef Id="libfftw3_3.dll" />
+            <ComponentRef Id="libfontconfig_1.dll" />
+            <ComponentRef Id="libfreetype_6.dll" />
+            <ComponentRef Id="libfribidi_0.dll" />
+            <ComponentRef Id="libgcc_s_seh_1.dll" />
+            <ComponentRef Id="libgdk_pixbuf_2.0_0.dll" />
+            <ComponentRef Id="libgif_7.dll" />
+            <ComponentRef Id="libgio_2.0_0.dll" />
+            <ComponentRef Id="libglib_2.0_0.dll" />
+            <ComponentRef Id="libgmodule_2.0_0.dll" />
+            <ComponentRef Id="libgobject_2.0_0.dll" />
+            <ComponentRef Id="libgsf_1_114.dll" />
+            <ComponentRef Id="libharfbuzz_0.dll" />
+            <ComponentRef Id="libheif.dll" />
+            <ComponentRef Id="libIlmImf_2_5.dll" />
+            <ComponentRef Id="libjpeg_62.dll" />
+            <ComponentRef Id="liblcms2_2.dll" />
+            <ComponentRef Id="libMagickCore_6.Q16_6.dll" />
+            <ComponentRef Id="libmatio_11.dll" />
+            <ComponentRef Id="libopenjp2.dll" />
+            <ComponentRef Id="libopenslide_0.dll" />
+            <ComponentRef Id="liborc_0.4_0.dll" />
+            <ComponentRef Id="libpango_1.0_0.dll" />
+            <ComponentRef Id="libpangocairo_1.0_0.dll" />
+            <ComponentRef Id="libpangoft2_1.0_0.dll" />
+            <ComponentRef Id="libpangowin32_1.0_0.dll" />
+            <ComponentRef Id="libpixman_1_0.dll" />
+            <ComponentRef Id="libpng16_16.dll" />
+            <ComponentRef Id="libpoppler_105.dll" />
+            <ComponentRef Id="libpoppler_glib_8.dll" />
+            <ComponentRef Id="librsvg_2_2.dll" />
+            <ComponentRef Id="libspng_0.dll" />
+            <ComponentRef Id="libsqlite3_0.dll" />
+            <ComponentRef Id="libstdc___6.dll" />
+            <ComponentRef Id="libtiff_5.dll" />
+            <ComponentRef Id="libvips_42.dll" />
+            <ComponentRef Id="libvips_cpp_42.dll" />
+            <ComponentRef Id="libwebp_7.dll" />
+            <ComponentRef Id="libwebpdemux_2.dll" />
+            <ComponentRef Id="libwebpmux_3.dll" />
+            <ComponentRef Id="libwinpthread_1.dll" />
+            <ComponentRef Id="libxml2_2.dll" />
+            <ComponentRef Id="libz1.dll" />
+            <ComponentRef Id="NetVips.dll" />
+            <ComponentRef Id="NetVips.xml" />
+            <ComponentRef Id="SVS2TIFF.exe" />
+            <ComponentRef Id="SVS2TIFF.exe.config" />
+            <ComponentRef Id="SVS2TIFF.pdb" />
+            <ComponentRef Id="SVS2TIFF.xml" />
+            <ComponentRef Id="System.Buffers.dll" />
+            <ComponentRef Id="System.Buffers.xml" />
+            <ComponentRef Id="System.Memory.dll" />
+            <ComponentRef Id="System.Memory.xml" />
+            <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.dll" />
+            <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.xml" />
+            <ComponentRef Id="vips.exe" />
+            <ComponentRef Id="vipsedit.exe" />
+            <ComponentRef Id="vipsheader.exe" />
+            <ComponentRef Id="vipsprofile" />
+            <ComponentRef Id="vipsthumbnail.exe" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
