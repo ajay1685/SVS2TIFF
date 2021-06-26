@@ -2,6 +2,7 @@
 Imports NetVips
 Imports NetVips.Enums
 
+
 Public Class SVS2TIFF
     Public Property CancelFlag As Boolean
 
@@ -42,10 +43,11 @@ Public Class SVS2TIFF
         Btn_test.Visible = True
 #End If
 
-        Cbx_compression.Items.Add(Enums.ForeignTiffCompression.None)
-        Cbx_compression.Items.Add(Enums.ForeignTiffCompression.Lzw)
-        Cbx_compression.Items.Add(Enums.ForeignTiffCompression.Jpeg)
-        Cbx_compression.SelectedIndex = Cbx_compression.Items.IndexOf(Enums.ForeignTiffCompression.None)
+        Cbx_compression.Items.Add(ForeignTiffCompression.None)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Lzw)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Jpeg)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Jp2k)
+        Cbx_compression.SelectedIndex = Cbx_compression.Items.IndexOf(ForeignTiffCompression.None)
 
     End Sub
 

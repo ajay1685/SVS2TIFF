@@ -2,41 +2,29 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
-            <Component Id="NetVips.dll" Guid="{BC9DDD0D-11A2-41B7-8398-2D7ED0655E42}">
+            <Component Id="NetVips.dll" Guid="{2AF74E14-137C-4984-9A34-E6DA32BE241D}">
                 <File Id="NetVips.dll" KeyPath="yes" Source="$(var.BasePath)\NetVips.dll" />
             </Component>
-            <Component Id="NetVips.xml" Guid="{54BE2095-B4A9-4BD5-8B85-C58BBCD3D583}">
+            <Component Id="NetVips.xml" Guid="{547B5C1C-DBCE-4A6C-B43C-81E05FD98B7B}">
                 <File Id="NetVips.xml" KeyPath="yes" Source="$(var.BasePath)\NetVips.xml" />
             </Component>
-            <Component Id="SVS2TIFF.exe" Guid="{D66A1B06-FF6D-4029-ACD3-86BDC958A8D5}">
+            <Component Id="SVS2TIFF.exe" Guid="{DCD9D887-DB77-4BC1-A013-797A4A5BE015}">
                 <File Id="SVS2TIFF.exe" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe" />
             </Component>
-            <Component Id="SVS2TIFF.exe.config" Guid="{05E25D33-DE66-456F-8BB7-F699C5424FCC}">
+            <Component Id="SVS2TIFF.exe.config" Guid="{27B36C36-87CB-4999-8D28-4C0B1114312D}">
                 <File Id="SVS2TIFF.exe.config" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe.config" />
             </Component>
-            <Component Id="SVS2TIFF.pdb" Guid="{978B5785-0BA5-43F8-8DD4-719AA774C14B}">
+            <Component Id="SVS2TIFF.pdb" Guid="{5971CA1D-E115-4014-AF20-0C0DE620AA39}">
                 <File Id="SVS2TIFF.pdb" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.pdb" />
             </Component>
-            <Component Id="SVS2TIFF.xml" Guid="{F726CDCC-B26D-48B4-B963-F6CD105BC405}">
+            <Component Id="SVS2TIFF.xml" Guid="{2CC2CB20-CE99-4EB7-93C3-0A9EADCE8A04}">
                 <File Id="SVS2TIFF.xml" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.xml" />
             </Component>
-            <Component Id="System.Buffers.dll" Guid="{DCB2F575-89B4-4676-A428-BFA27B8BFE6A}">
+            <Component Id="System.Buffers.dll" Guid="{2FD0FC0D-C6ED-4C5D-8920-97C88556601B}">
                 <File Id="System.Buffers.dll" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.dll" />
             </Component>
-            <Component Id="System.Buffers.xml" Guid="{3B86D972-8775-452F-9A1A-D813CD8A1185}">
+            <Component Id="System.Buffers.xml" Guid="{10380FFE-5C69-4E25-A8D3-6E4B061DE9FE}">
                 <File Id="System.Buffers.xml" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.xml" />
-            </Component>
-            <Component Id="System.Memory.dll" Guid="{B1618322-8C58-44BC-8F57-F1DA2B626199}">
-                <File Id="System.Memory.dll" KeyPath="yes" Source="$(var.BasePath)\System.Memory.dll" />
-            </Component>
-            <Component Id="System.Memory.xml" Guid="{4E9A5E85-4B18-4181-BDD9-AD76E9324AC6}">
-                <File Id="System.Memory.xml" KeyPath="yes" Source="$(var.BasePath)\System.Memory.xml" />
-            </Component>
-            <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="{300F0DA8-0790-4D63-904C-88B3551402B4}">
-                <File Id="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="$(var.BasePath)\System.Runtime.CompilerServices.Unsafe.dll" />
-            </Component>
-            <Component Id="System.Runtime.CompilerServices.Unsafe.xml" Guid="{981C2B51-95A3-4765-BF15-6ABAF356212A}">
-                <File Id="System.Runtime.CompilerServices.Unsafe.xml" KeyPath="yes" Source="$(var.BasePath)\System.Runtime.CompilerServices.Unsafe.xml" />
             </Component>
         </DirectoryRef>
     </Fragment>
@@ -50,10 +38,6 @@
             <ComponentRef Id="SVS2TIFF.xml" />
             <ComponentRef Id="System.Buffers.dll" />
             <ComponentRef Id="System.Buffers.xml" />
-            <ComponentRef Id="System.Memory.dll" />
-            <ComponentRef Id="System.Memory.xml" />
-            <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.dll" />
-            <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.xml" />
         </ComponentGroup>
     </Fragment>
 </Wix>

@@ -78,12 +78,12 @@
       <DefineConstants>BuildVersion=%(AssemblyVersion.Version)</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
-      <DefineConstants>BasePath=..\SVS2TIFF\bin\$(Platform)\$(Configuration);LibvipsPath=..\SVS2TIFF\libvips\bin</DefineConstants>
+      <DefineConstants>BasePath=..\SVS2TIFF\bin\$(Platform)\$(Configuration);LibvipsPath=..\SVS2TIFF\libvips</DefineConstants>
     </PropertyGroup>
     <!-- Harvest files from the build folder -->
     <HeatDirectory OutputFile="ComponentsGenerated.wxs" DirectoryRefId="INSTALLFOLDER" ComponentGroupName="PublishedComponents" SuppressCom="true" Directory="..\SVS2TIFF\bin\$(Platform)\$(Configuration)" SuppressFragments="true" SuppressRegistry="true" SuppressUniqueIds="true" SuppressRootDirectory="true" AutoGenerateGuids="false" GenerateGuidsNow="true" ToolPath="$(WixToolPath)" PreprocessorVariable="var.BasePath" />
     <!-- Harvest libvips components -->
-    <HeatDirectory OutputFile="ComponentsLibvips.wxs" DirectoryRefId="INSTALLFOLDER" ComponentGroupName="LibvipsComponents" SuppressCom="true" Directory="..\SVS2TIFF\libvips\bin" SuppressFragments="true" SuppressRegistry="true" SuppressUniqueIds="true" SuppressRootDirectory="true" AutoGenerateGuids="false" GenerateGuidsNow="true" ToolPath="$(WixToolPath)" PreprocessorVariable="var.LibvipsPath" />
+    <HeatDirectory OutputFile="ComponentsLibvips.wxs" DirectoryRefId="INSTALLFOLDER" ComponentGroupName="LibvipsComponents" SuppressCom="true" Directory="..\SVS2TIFF\libvips" SuppressFragments="true" SuppressRegistry="true" SuppressUniqueIds="true" SuppressRootDirectory="true" AutoGenerateGuids="false" GenerateGuidsNow="true" ToolPath="$(WixToolPath)" PreprocessorVariable="var.LibvipsPath" />
   </Target>
   <Target Name="AfterBuild">
     <!-- Get assembly version -->
