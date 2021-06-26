@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="NetVips.dll" Guid="{2AF74E14-137C-4984-9A34-E6DA32BE241D}">
+                <File Id="NetVips.dll" KeyPath="yes" Source="$(var.BasePath)\NetVips.dll" />
+            </Component>
+            <Component Id="NetVips.xml" Guid="{547B5C1C-DBCE-4A6C-B43C-81E05FD98B7B}">
+                <File Id="NetVips.xml" KeyPath="yes" Source="$(var.BasePath)\NetVips.xml" />
+            </Component>
+            <Component Id="SVS2TIFF.exe" Guid="{DCD9D887-DB77-4BC1-A013-797A4A5BE015}">
+                <File Id="SVS2TIFF.exe" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe" />
+            </Component>
+            <Component Id="SVS2TIFF.exe.config" Guid="{27B36C36-87CB-4999-8D28-4C0B1114312D}">
+                <File Id="SVS2TIFF.exe.config" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe.config" />
+            </Component>
+            <Component Id="SVS2TIFF.pdb" Guid="{5971CA1D-E115-4014-AF20-0C0DE620AA39}">
+                <File Id="SVS2TIFF.pdb" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.pdb" />
+            </Component>
+            <Component Id="SVS2TIFF.xml" Guid="{2CC2CB20-CE99-4EB7-93C3-0A9EADCE8A04}">
+                <File Id="SVS2TIFF.xml" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.xml" />
+            </Component>
+            <Component Id="System.Buffers.dll" Guid="{2FD0FC0D-C6ED-4C5D-8920-97C88556601B}">
+                <File Id="System.Buffers.dll" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.dll" />
+            </Component>
+            <Component Id="System.Buffers.xml" Guid="{10380FFE-5C69-4E25-A8D3-6E4B061DE9FE}">
+                <File Id="System.Buffers.xml" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.xml" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PublishedComponents">
+            <ComponentRef Id="NetVips.dll" />
+            <ComponentRef Id="NetVips.xml" />
+            <ComponentRef Id="SVS2TIFF.exe" />
+            <ComponentRef Id="SVS2TIFF.exe.config" />
+            <ComponentRef Id="SVS2TIFF.pdb" />
+            <ComponentRef Id="SVS2TIFF.xml" />
+            <ComponentRef Id="System.Buffers.dll" />
+            <ComponentRef Id="System.Buffers.xml" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

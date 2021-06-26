@@ -2,6 +2,7 @@
 Imports NetVips
 Imports NetVips.Enums
 
+
 Public Class SVS2TIFF
     Public Property CancelFlag As Boolean
 
@@ -27,7 +28,7 @@ Public Class SVS2TIFF
     Private Sub Btn_selectfile_Click(sender As Object, e As EventArgs) Handles Btn_selectfile.Click
         ' Choose an Image File 
         OpenFileDialog1.Title = "Please select a SVS or SCN file"
-        OpenFileDialog1.InitialDirectory = "%userprofile%\desktop" '"C:temp"
+        OpenFileDialog1.InitialDirectory = "%userprofile%\desktop"
         OpenFileDialog1.Filter = "Aperio SVS files (*.svs)|*.svs|Leica SCN files (*.scn)|*.scn|TIFF files (*.tif)|*.tif|All files (*.*)|*.*" 'Leica SCN files (*.scn)|*.scn
 
         If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
@@ -42,10 +43,11 @@ Public Class SVS2TIFF
         Btn_test.Visible = True
 #End If
 
-        Cbx_compression.Items.Add(Enums.ForeignTiffCompression.None)
-        Cbx_compression.Items.Add(Enums.ForeignTiffCompression.Lzw)
-        Cbx_compression.Items.Add(Enums.ForeignTiffCompression.Jpeg)
-        Cbx_compression.SelectedIndex = Cbx_compression.Items.IndexOf("none")
+        Cbx_compression.Items.Add(ForeignTiffCompression.None)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Lzw)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Jpeg)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Jp2k)
+        Cbx_compression.SelectedIndex = Cbx_compression.Items.IndexOf(ForeignTiffCompression.None)
 
     End Sub
 
@@ -170,35 +172,38 @@ Public Class SVS2TIFF
 
         'make a copy, set properties, add minimal metadata in OME-XML format 
         im = im.Copy()
+        im = im.Mutate(Sub(mutable)
+                           mutable.[Set](NetVips.GValue.GIntType, "page-height", Height)
+                           mutable.[Set](NetVips.GValue.GStrType, "image-description",
+                               $"<?xml version=""1.0"" encoding=""UTF-8""?>
+                                <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06""
+                                xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance""
+                                    xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
+                                    <Instrument ID=""Instrument:0"">
+                                            <Objective ID=""Objective:0"" Immersion=""Air"" NominalMagnification=""{Magnification}""/>
+                                    </Instrument>
+                                    <Image ID=""Image0"">
+                                        <!-- Minimum required fields about image dimensions -->
+                                        <InstrumentRef ID=""Instrument:0""/>
+                                        <ObjectiveSettings ID=""Objective:0""/>
+                                        <Pixels DimensionOrder=""XYCZT""
+                                                ID=""Pixels:0""
+                                                SizeC=""{Bands}""
+                                                SizeT=""1""
+                                                SizeX=""{Width}""
+                                                SizeY=""{Height}""
+                                                SizeZ=""1""
+                                                Type=""uint8""
+                                                PhysicalSizeX=""{CalibrationX}""
+                                                PhysicalSizeXUnit=""µm""
+                                                PhysicalSizeY=""{CalibrationY}""
+                                                PhysicalSizeYUnit=""µm"">
+                                        </Pixels>
+                                    </Image>
+                                </OME>")
+                       End Sub)
 
-        im.Set(NetVips.GValue.GIntType, "page-height", Height)
-        im.Set(NetVips.GValue.GStrType, "image-description",
-            $"<?xml version=""1.0"" encoding=""UTF-8""?>
-            <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06""
-            xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance""
-                xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
-                <Instrument ID=""Instrument:0"">
-                        <Objective ID=""Objective:0"" Immersion=""Air"" NominalMagnification=""{Magnification}""/>
-                </Instrument>
-                <Image ID=""Image0"">
-                    <!-- Minimum required fields about image dimensions -->
-                    <InstrumentRef ID=""Instrument:0""/>
-                    <ObjectiveSettings ID=""Objective:0""/>
-                    <Pixels DimensionOrder=""XYCZT""
-                            ID=""Pixels:0""
-                            SizeC=""{Bands}""
-                            SizeT=""1""
-                            SizeX=""{Width}""
-                            SizeY=""{Height}""
-                            SizeZ=""1""
-                            Type=""uint8""
-                            PhysicalSizeX=""{CalibrationX}""
-                            PhysicalSizeXUnit=""µm""
-                            PhysicalSizeY=""{CalibrationY}""
-                            PhysicalSizeYUnit=""µm"">
-                    </Pixels>
-                </Image>
-            </OME>")
+
 
         'Monitor progress of the operation
         im.SetProgress(True)
@@ -249,110 +254,6 @@ Public Class SVS2TIFF
         OutPut.Clear()
     End Sub
 
-    Private Sub Btn_test_Click(sender As Object, e As EventArgs) 'Handles Btn_test.Click
-        OutPut.AppendText(vbCrLf & "Info: " & TextBoxFileName.Text & vbCrLf)
-
-        Dim im, imTemp As Image
-        Try
-            im = NetVips.Image.NewFromFile(TextBoxFileName.Text)
-            If im.HasAlpha() Then
-                im = im.ExtractBand(0, im.Bands - 1)
-            End If
-        Catch ex As Exception
-            OutPut.AppendText("File format not supported" & vbCrLf)
-            Exit Sub
-        End Try
-
-        'read useful info
-        Dim Height = im.Height
-        Dim Bands = im.Bands
-        Dim Width = im.Width
-        Dim CalibrationX = im.Get("openslide.mpp-x").ToString()
-        Dim CalibrationY = im.Get("openslide.mpp-y").ToString()
-        Dim Magnification = im.Get("openslide.objective-power").ToString()
-        Dim levels As Integer = CInt(im.Get("openslide.level-count"))
-        OutPut.AppendText("levels: " & levels & vbCrLf)
-
-        im = im.Copy()
-        If levels > 1 Then
-            For i = 1 To levels - 1
-                imTemp = Image.NewFromFile(TextBoxFileName.Text, kwargs:=New VOption From {{"level", i}})
-                If CInt(im.Get("openslide.level[" & i & "].downsample")) = 1 Then
-                    If imTemp.HasAlpha() Then
-                        imTemp = imTemp.ExtractBand(0, imTemp.Bands - 1)
-                    End If
-                    im = im.Join(imTemp, direction:="vertical")
-                End If
-            Next
-        End If
-        im.Set(NetVips.GValue.GIntType, "page-height", Height)
-        OutPut.AppendText("Height: " & im.Get("height").ToString & " Width: " & im.Get("width").ToString & " Bands: " & im.Bands & " Depth: " & im.PageHeight & vbCrLf)
-        OutPut.AppendText("Micron per pixel X: " & im.Get("openslide.mpp-x").ToString & " Y: " & im.Get("openslide.mpp-y").ToString & vbCrLf)
-        OutPut.AppendText("Magnification: " & im.Get("openslide.objective-power").ToString & "X" & vbCrLf)
-        OutPut.AppendText("libvips loader: " & im.Get("vips-loader").ToString & vbCrLf)
-
-        levels = CInt(im.Height / Height)
-        Debug.Print("New levels: " & levels)
-
-        im.Set(NetVips.GValue.GStrType, "image-description",
-            $"<?xml version=""1.0"" encoding=""UTF-8""?>
-            <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06""
-            xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance""
-                xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
-                <Instrument ID=""Instrument:0"">
-                        <Objective ID=""Objective:0"" Immersion=""Air"" NominalMagnification=""{Magnification}""/>
-                </Instrument>
-                <Image ID=""Image0"">
-                    <!-- Minimum required fields about image dimensions -->
-                    <InstrumentRef ID=""Instrument:0""/>
-                    <ObjectiveSettings ID=""Objective:0""/>
-                    <Pixels DimensionOrder=""XYCZT""
-                            ID=""Pixels:0""
-                            SizeC=""{im.Bands}""
-                            SizeT=""1""
-                            SizeX=""{im.Width}""
-                            SizeY=""{Height}""
-                            SizeZ=""{levels}""
-                            Type=""uint8""
-                            PhysicalSizeX=""{CalibrationX}""
-                            PhysicalSizeXUnit=""µm""
-                            PhysicalSizeY=""{CalibrationY}""
-                            PhysicalSizeYUnit=""µm"">
-                    </Pixels>
-                </Image>
-            </OME>")
-
-        'Monitor progress of the operation
-        im.SetProgress(True)
-        im.SignalConnect(Enums.Signals.Eval, New Image.EvalDelegate(AddressOf EvalHandler))
-        Dim saveOption As New VOption
-        saveOption.Add("compression", Cbx_compression.SelectedItem)
-        Dim extension As String = ".tif"
-        If Chk_ometiff.Checked Then
-            saveOption.Add("tile", True)
-            saveOption.Add("pyramid", True)
-            saveOption.Add("subifd", True)
-            extension = ".ome.tif"
-        End If
-
-        'saveOption.Add("tile-width", 256)
-        'saveOption.Add("tile-height", 256)
-        'saveOption.Add("xres", im.Xres)
-        'saveOption.Add("yres", im.Yres)
-
-        Try
-
-            im.WriteToFile(Path.ChangeExtension(TextBoxFileName.Text, extension), saveOption)
-        Catch ex As Exception
-            OutPut.AppendText(ex.Message)
-        End Try
-
-
-
-        im.Close()
-        im.Dispose()
-    End Sub
-
     Private Sub Btn_test_Click_1(sender As Object, e As EventArgs) Handles Btn_test.Click
 
         Dim DirectoryName = Path.GetDirectoryName(TextBoxFileName.Text)
@@ -367,6 +268,7 @@ Public Class SVS2TIFF
         ' images = New Image(files.Count - 1)
         Dim im, tempim As Image
         tempim = Image.NewFromFile(files(0))
+        im = Image.NewFromFile(files(0))
 
         If tempim.HasAlpha() Then
             tempim = tempim.ExtractBand(0, im.Bands - 1)
@@ -402,22 +304,25 @@ Public Class SVS2TIFF
 
         out.SetProgress(True)
         out.SignalConnect(Signals.Eval, New Image.EvalDelegate(AddressOf EvalHandler))
-        out.Set(NetVips.GValue.GStrType, "page-height", height)
-        out.Set(NetVips.GValue.GStrType, "image-description",
-                $"<?xml version=""1.0"" encoding=""UTF-8""?>
-            <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06"" xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
-                <Image ID=""Image0"">
-                    <Pixels DimensionOrder=""XYCZT""
-                            ID=""Pixels:0""
-                            SizeC=""{bands}""
-                            SizeT=""1""
-                            SizeX=""{width}""
-                            SizeY=""{height}""
-                            SizeZ=""1""
-                            Type=""uint8""
-                    </Pixels>
-                </Image>
-            </OME>")
+        out = out.Mutate(Sub(mutable)
+                             mutable.[Set](NetVips.GValue.GStrType, "page-height", height)
+                             mutable.[Set](NetVips.GValue.GStrType, "image-description",
+                                     $"<?xml version=""1.0"" encoding=""UTF-8""?>
+                                        <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06"" xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
+                                            <Image ID=""Image0"">
+                                                <Pixels DimensionOrder=""XYCZT""
+                                                        ID=""Pixels:0""
+                                                        SizeC=""{bands}""
+                                                        SizeT=""1""
+                                                        SizeX=""{width}""
+                                                        SizeY=""{height}""
+                                                        SizeZ=""1""
+                                                        Type=""uint8""
+                                                </Pixels>
+                                            </Image>
+                                        </OME>")
+                         End Sub)
+
 
         OutPut.AppendText($"<?xml version=""1.0"" encoding=""UTF-8""?>
             <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06""
