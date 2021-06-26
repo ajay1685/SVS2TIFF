@@ -32,6 +32,7 @@
 		<Feature Id="ProductFeature" Title="!(loc.ProductName_$(var.Platform))" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
 			<ComponentGroupRef Id="PublishedComponents" />
+			<ComponentGroupRef Id="LibvipsComponents" />
 		</Feature>
 	</Product>
 
