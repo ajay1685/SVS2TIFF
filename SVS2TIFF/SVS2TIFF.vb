@@ -4,7 +4,22 @@ Imports NetVips.Enums
 
 
 Public Class SVS2TIFF
+    ' variables
+    ' Test VScode in the github repository via browser
     Public Property CancelFlag As Boolean
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        OutPut.AppendText($"libvips version: {NetVips.NetVips.Version(0)}.{NetVips.NetVips.Version(1)}.{NetVips.NetVips.Version(2)}" & vbCrLf)
+#If DEBUG Then
+        Btn_test.Visible = True
+#End If
+
+        Cbx_compression.Items.Add(ForeignTiffCompression.None)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Lzw)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Jpeg)
+        Cbx_compression.Items.Add(ForeignTiffCompression.Jp2k)
+        Cbx_compression.SelectedIndex = Cbx_compression.Items.IndexOf(ForeignTiffCompression.None)
+
+    End Sub
 
     Private Sub Btn_info_Click(sender As Object, e As EventArgs) Handles Btn_info.Click
         If File.Exists(TextBoxFileName.Text) Then
@@ -34,20 +49,6 @@ Public Class SVS2TIFF
         If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
             TextBoxFileName.Text = OpenFileDialog1.FileName
         End If
-
-    End Sub
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        OutPut.AppendText($"libvips version: {NetVips.NetVips.Version(0)}.{NetVips.NetVips.Version(1)}.{NetVips.NetVips.Version(2)}" & vbCrLf)
-#If DEBUG Then
-        Btn_test.Visible = True
-#End If
-
-        Cbx_compression.Items.Add(ForeignTiffCompression.None)
-        Cbx_compression.Items.Add(ForeignTiffCompression.Lzw)
-        Cbx_compression.Items.Add(ForeignTiffCompression.Jpeg)
-        Cbx_compression.Items.Add(ForeignTiffCompression.Jp2k)
-        Cbx_compression.SelectedIndex = Cbx_compression.Items.IndexOf(ForeignTiffCompression.None)
 
     End Sub
 
