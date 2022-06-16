@@ -1,6 +1,6 @@
 ## SVS2TIFF
 
-### Table of Contents
+### Table of contents
 
 + [About](#about)
 + [Prerequisites](#requirements)
