@@ -43,5 +43,5 @@ Please contact [Ajay Zalavadia](https://ajay1685.github.io/) at Lerner Research 
 
 ## Authors
 
-* **Ajay Zalavadia, Ph.D.** - *SVS2TIFF Convert Aperio SVS files to TIFF or OME-TIFF * - [@ajay1685](https://github.com/ajay1685)
-*  **Authors of libvips, NetVips and Openslide**
+* **Ajay Zalavadia, Ph.D.** - *SVS2TIFF Convert Aperio SVS files to TIFF or OME-TIFF* - [@ajay1685](https://github.com/ajay1685)
+* **Authors of libvips, NetVips and Openslide** - *Thanks for their support and help*
