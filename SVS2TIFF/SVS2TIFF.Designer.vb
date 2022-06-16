@@ -33,7 +33,6 @@ Partial Class SVS2TIFF
         Me.Btn_selectfile = New System.Windows.Forms.Button()
         Me.TextBoxFileName = New System.Windows.Forms.TextBox()
         Me.Btn_clear = New System.Windows.Forms.Button()
-        Me.Btn_test = New System.Windows.Forms.Button()
         Me.Chk_ometiff = New System.Windows.Forms.CheckBox()
         Me.Cbx_compression = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -133,17 +132,6 @@ Partial Class SVS2TIFF
         Me.Btn_clear.Text = "Clear"
         Me.Btn_clear.UseVisualStyleBackColor = True
         '
-        'Btn_test
-        '
-        Me.Btn_test.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Btn_test.Location = New System.Drawing.Point(423, 191)
-        Me.Btn_test.Name = "Btn_test"
-        Me.Btn_test.Size = New System.Drawing.Size(75, 23)
-        Me.Btn_test.TabIndex = 20
-        Me.Btn_test.Text = "Test"
-        Me.Btn_test.UseVisualStyleBackColor = True
-        Me.Btn_test.Visible = False
-        '
         'Chk_ometiff
         '
         Me.Chk_ometiff.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -194,7 +182,6 @@ Partial Class SVS2TIFF
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Cbx_compression)
         Me.Controls.Add(Me.Chk_ometiff)
-        Me.Controls.Add(Me.Btn_test)
         Me.Controls.Add(Me.Btn_clear)
         Me.Controls.Add(Me.Btn_cancel)
         Me.Controls.Add(Me.CB_ProcessAll)
@@ -223,7 +210,6 @@ Partial Class SVS2TIFF
     Friend WithEvents Btn_selectfile As Button
     Friend WithEvents TextBoxFileName As TextBox
     Friend WithEvents Btn_clear As Button
-    Friend WithEvents Btn_test As Button
     Friend WithEvents Chk_ometiff As CheckBox
     Friend WithEvents Cbx_compression As ComboBox
     Friend WithEvents Label1 As Label

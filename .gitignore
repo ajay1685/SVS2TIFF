@@ -26,6 +26,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Ii]nstalls/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -58,6 +59,9 @@ artifacts/
 
 # StyleCop
 StyleCopReport.xml
+
+#Photoshop files
+*.psd
 
 # Files built by Visual Studio
 *_i.c

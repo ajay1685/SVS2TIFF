@@ -2,17 +2,12 @@
 Imports NetVips
 Imports NetVips.Enums
 
-
 Public Class SVS2TIFF
     ' variables
-    ' Test VScode in the github repository via browser
-    Public Property CancelFlag As Boolean
+    Public Property CancelFlag As Boolean = True
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        OutPut.AppendText($"libvips version: {NetVips.NetVips.Version(0)}.{NetVips.NetVips.Version(1)}.{NetVips.NetVips.Version(2)}" & vbCrLf)
-#If DEBUG Then
-        Btn_test.Visible = True
-#End If
 
+        OutPut.AppendText($"libvips version: {NetVips.NetVips.Version(0)}.{NetVips.NetVips.Version(1)}.{NetVips.NetVips.Version(2)}" & vbCrLf)
         Cbx_compression.Items.Add(ForeignTiffCompression.None)
         Cbx_compression.Items.Add(ForeignTiffCompression.Lzw)
         Cbx_compression.Items.Add(ForeignTiffCompression.Jpeg)
@@ -53,34 +48,30 @@ Public Class SVS2TIFF
     End Sub
 
     Private Sub Btn_convert_Click(sender As Object, e As EventArgs) Handles Btn_convert.Click
-        If File.Exists(TextBoxFileName.Text) Then
-            CancelFlag = False
-            Btn_convert.Enabled = False
 
-            If CB_ProcessAll.Checked Then
-                Dim DirectoryName = Path.GetDirectoryName(TextBoxFileName.Text)
-                Dim files As New List(Of String)
-                files.AddRange(Directory.GetFiles(DirectoryName, "*.svs"))
-                files.AddRange(Directory.GetFiles(DirectoryName, "*.scn"))
-
-                For Each file As String In files
-                    If CancelFlag Then
-                        OutPut.AppendText("Cancelled: " & file & vbCrLf)
-                    Else
-                        SVS2TIFF(file, String.Empty)
-                    End If
-                    OutPut.AppendText("Processing: " & file & vbCrLf)
-                Next
-
-            Else
-                SVS2TIFF(TextBoxFileName.Text, String.Empty)
-            End If
-
-            Btn_convert.Enabled = True
-        Else
-            OutPut.AppendText("Please select a file..." & vbCrLf)
+        If Not File.Exists(TextBoxFileName.Text) Then
+            OutPut.AppendText("Please select a valid file..." & vbCrLf)
+            Exit Sub
         End If
 
+        CancelFlag = False
+        Dim DirectoryName = Path.GetDirectoryName(TextBoxFileName.Text)
+        Dim files As New List(Of String)
+
+        If CB_ProcessAll.Checked Then
+            files.AddRange(Directory.GetFiles(DirectoryName, "*.svs"))
+            files.AddRange(Directory.GetFiles(DirectoryName, "*.scn"))
+        Else
+            files.Add(TextBoxFileName.Text)
+        End If
+
+        Btn_convert.Enabled = False
+        For Each file As String In files
+            If Not CancelFlag Then
+                SVS2TIFF(file, String.Empty)
+            End If
+        Next
+        Btn_convert.Enabled = True
 
     End Sub
 
@@ -150,7 +141,7 @@ Public Class SVS2TIFF
             Exit Sub
         End Try
 
-        ' openslide adds an alpha channel, so remove it
+        'openslide adds an alpha channel, so remove it
         If im.HasAlpha() Then
             im = im.ExtractBand(0, im.Bands - 1)
         End If
@@ -204,8 +195,6 @@ Public Class SVS2TIFF
                                 </OME>")
                        End Sub)
 
-
-
         'Monitor progress of the operation
         im.SetProgress(True)
         im.SignalConnect(Enums.Signals.Eval, New Image.EvalDelegate(AddressOf EvalHandler))
@@ -241,120 +230,19 @@ Public Class SVS2TIFF
         'Console.WriteLine($"total number of pels to process = {progress.TPels}")
         'Console.WriteLine($"number of pels processed so far = {progress.NPels}")
         'Debug.WriteLine($"percent complete = {progress.Percent}")
-        'Debug.WriteLine($"percent complete = {progress.Percent}")
         pBar_main.Value = progress.Percent
         Application.DoEvents()
     End Sub
 
     Private Sub Btn_cancel_Click(sender As Object, e As EventArgs) Handles Btn_cancel.Click
+        If Not CancelFlag Then
+            OutPut.AppendText("Process will be terminated after completing this file" & vbCrLf)
+        End If
         CancelFlag = True
-        OutPut.AppendText("Process will be terminated after completing this file" & vbCrLf)
     End Sub
 
     Private Sub Btn_clear_Click(sender As Object, e As EventArgs) Handles Btn_clear.Click
         OutPut.Clear()
     End Sub
 
-    Private Sub Btn_test_Click_1(sender As Object, e As EventArgs) Handles Btn_test.Click
-
-        Dim DirectoryName = Path.GetDirectoryName(TextBoxFileName.Text)
-        Dim FileExtension = Path.GetExtension(TextBoxFileName.Text)
-        Dim outfilename = "NetVips-merged-8bit.tif"
-        Dim outfile = Path.Combine(DirectoryName, outfilename)
-
-        Dim files As New List(Of String)
-        files.AddRange(Directory.GetFiles(DirectoryName, "*" & FileExtension, IO.SearchOption.TopDirectoryOnly))
-        OutPut.AppendText("Total files: " & files.Count & vbCrLf)
-        'Dim images(files.Count - 1) As Image
-        ' images = New Image(files.Count - 1)
-        Dim im, tempim As Image
-        tempim = Image.NewFromFile(files(0))
-        im = Image.NewFromFile(files(0))
-
-        If tempim.HasAlpha() Then
-            tempim = tempim.ExtractBand(0, im.Bands - 1)
-        End If
-        For Each file As String In files
-            If CancelFlag Then
-                OutPut.AppendText("Cancelled: " & file & vbCrLf)
-            Else
-                If files.IndexOf(file) > 0 Then
-                    im = NetVips.Image.NewFromFile(file)
-                    If im.HasAlpha() Then
-                        im = im.ExtractBand(0, im.Bands - 1)
-                    End If
-
-                    tempim.Join(im, direction:="vertical")
-                End If
-
-                ' images(files.IndexOf(file)) = im 'Image.NewFromFile(file, access:=Access.Sequential)
-            End If
-            OutPut.AppendText(file & " Height: ") '& im(files.IndexOf(file)).Height & vbCrLf)
-        Next
-
-        'OutPut.AppendText("Width: " & images(0).Width & vbCrLf)
-
-        Dim out As Image ' = Image.Arrayjoin(images, across:=1)
-        out = tempim.Copy()
-        Dim CalibrationX As String = 1000 / im.Xres
-        Dim CalibrationY As String = 1000 / im.Yres
-        Dim CalibrationUnits As String = "µm"
-        Dim width As Integer = im.Width
-        Dim height As Integer = im.Height
-        Dim bands As Integer = files.Count 'Int(out.Height / height)
-
-        out.SetProgress(True)
-        out.SignalConnect(Signals.Eval, New Image.EvalDelegate(AddressOf EvalHandler))
-        out = out.Mutate(Sub(mutable)
-                             mutable.[Set](NetVips.GValue.GStrType, "page-height", height)
-                             mutable.[Set](NetVips.GValue.GStrType, "image-description",
-                                     $"<?xml version=""1.0"" encoding=""UTF-8""?>
-                                        <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06"" xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
-                                            <Image ID=""Image0"">
-                                                <Pixels DimensionOrder=""XYCZT""
-                                                        ID=""Pixels:0""
-                                                        SizeC=""{bands}""
-                                                        SizeT=""1""
-                                                        SizeX=""{width}""
-                                                        SizeY=""{height}""
-                                                        SizeZ=""1""
-                                                        Type=""uint8""
-                                                </Pixels>
-                                            </Image>
-                                        </OME>")
-                         End Sub)
-
-
-        OutPut.AppendText($"<?xml version=""1.0"" encoding=""UTF-8""?>
-            <OME xmlns = ""http://www.openmicroscopy.org/Schemas/OME/2016-06""
-            xmlns:xsi=""http//www.w3.org/2001/XMLSchema-instance""
-                xsi:schemaLocation=""http//www.openmicroscopy.org/Schemas/OME/2016-06 http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"">
-                <Image ID=""Image0"">
-                    <!-- Minimum required fields about image dimensions -->
-                    <Pixels DimensionOrder=""XYCZT""
-                            ID=""Pixels:0""
-                            SizeC=""{bands}""
-                            SizeT=""1""
-                            SizeX=""{width}""
-                            SizeY=""{height}""
-                            SizeZ=""1""
-                            Type=""uint8""
-                            PhysicalSizeX=""{CalibrationX}""
-                            PhysicalSizeXUnit=""µm""
-                            PhysicalSizeY=""{CalibrationY}""
-                            PhysicalSizeYUnit=""µm"">
-                    </Pixels>
-                </Image>
-            </OME>")
-        Dim saveOption As New VOption
-        saveOption.Add("bigtiff", True)
-        saveOption.Add("compression", Cbx_compression.SelectedItem)
-        saveOption.Add("tile", True)
-        saveOption.Add("pyramid", True)
-        saveOption.Add("subifd", True)
-
-        OutPut.AppendText("writing tif ..." & vbCrLf)
-        out.WriteToFile(outfile, saveOption)
-        OutPut.AppendText("Done ..." & vbCrLf)
-    End Sub
 End Class
