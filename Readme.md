@@ -1,6 +1,8 @@
 ## SVS2TIFF
 
-![icon](svs2tiff.png){ width=50% }
+<p align="center">
+  <img width="256" height="256" src="svs2tiff.png">
+</p>
 
 ### Table of contents
 
