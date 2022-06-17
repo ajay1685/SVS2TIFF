@@ -1,5 +1,7 @@
 ## SVS2TIFF
 
+![icon](https://github.com/ajay1685/SVS2TIFF/blob/master/svs2tiff.png)
+
 ### Table of contents
 
 + [About](#about)
@@ -14,7 +16,7 @@ This repository contains a visual studio solution with the following projects.
 
 1. SVS2TIFF
 This project contains the application and required binaries
- 
+
 2. SVS2TIFF-Setup
 This project contains Wix setup project to make msi installer for windows.
 
