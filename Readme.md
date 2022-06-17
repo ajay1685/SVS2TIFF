@@ -1,6 +1,6 @@
 ## SVS2TIFF
 
-![icon](https://github.com/ajay1685/SVS2TIFF/blob/master/svs2tiff.png)
+![icon](svs2tiff.png){ width=50% }
 
 ### Table of contents
 
