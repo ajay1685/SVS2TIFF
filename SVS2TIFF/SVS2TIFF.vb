@@ -100,9 +100,9 @@ Public Class SVS2TIFF
                 If im.Get("openslide.vendor").ToString() = "aperio" Then
 
                     If fields.Contains("aperio.BestFocusLayer") Then
-                        OutPut.AppendText("Aperio z-stack with best focus layer: " & im.Get("aperio.BestFocusLayer").ToString() & " & Total ")
+                        OutPut.AppendText("Aperio z-stack with best focus layer: " & im.Get("aperio.BestFocusLayer").ToString() & " ")
                     End If
-                    OutPut.AppendText("level: " & im.Get("openslide.level-count").ToString & vbCrLf)
+                    OutPut.AppendText("Total level: " & im.Get("openslide.level-count").ToString & vbCrLf)
                 End If
 
                 'OutPut.AppendText("Height: " & im.Get("height").ToString & " Width: " & im.Get("width").ToString & " Bands: " & im.Bands & vbCrLf)
