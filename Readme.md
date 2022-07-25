@@ -25,8 +25,8 @@ This project contains Wix setup project to make msi installer for windows.
 ### Prerequisites <a name = "requirements"></a>
 
 #### Building with Visual Studio 2019 Community Edition
-* SVS2TIFF project requires .NET framework 4.7, NetVips 2.1.0 and libvips binaries.
-*  Binaries for libvips ([vips-dev-w64-all-8.12.2.zip](https://github.com/libvips/build-win64-mxe/releases/download/v8.12.2/vips-dev-w64-all-8.12.2.zip)) are included in the libvips directory of the SVS2TIFF project. Add libvips binaries to Path or to the same directory as the SVS2TIFF executable
+* SVS2TIFF project requires .NET framework 4.7, NetVips 2.2.0 and libvips binaries.
+* Binaries for libvips ([vips-dev-w64-all-8.13.0.zip](https://github.com/libvips/build-win64-mxe/releases/download/v8.13.0/vips-dev-w64-all-8.13.0.zip)) are included in the libvips directory of the SVS2TIFF project. Add libvips binaries to Path or to the same directory as the SVS2TIFF executable
 * SVS2TIFF-Setup requires Wix Toolset V3.x installed on the system. Add Wix Toolset to Path. 
 * Build the SVS2TIFF-Setup project to make msi installer. 
 
