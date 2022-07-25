@@ -2,28 +2,28 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
-            <Component Id="NetVips.dll" Guid="{BBE09C77-E08F-4E97-B996-6CD0668DB363}">
+            <Component Id="NetVips.dll" Guid="{A761699B-A537-4212-8CC8-2910C27139AD}">
                 <File Id="NetVips.dll" KeyPath="yes" Source="$(var.BasePath)\NetVips.dll" />
             </Component>
-            <Component Id="NetVips.xml" Guid="{10C3C615-0753-4D0D-84E7-0124D53D8AE6}">
+            <Component Id="NetVips.xml" Guid="{DA6A3769-3262-465B-B0B0-F1678CED72BE}">
                 <File Id="NetVips.xml" KeyPath="yes" Source="$(var.BasePath)\NetVips.xml" />
             </Component>
-            <Component Id="SVS2TIFF.exe" Guid="{101729BF-4FA6-488A-9B85-8DFF95269F80}">
+            <Component Id="SVS2TIFF.exe" Guid="{CA416A42-B257-4FF0-BA0B-FA1B2B277667}">
                 <File Id="SVS2TIFF.exe" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe" />
             </Component>
-            <Component Id="SVS2TIFF.exe.config" Guid="{3F532EE7-E3B4-4FA1-82CA-E8BDD6A17CBD}">
+            <Component Id="SVS2TIFF.exe.config" Guid="{5B872C62-CABA-469B-9BBD-C65FD649C2F7}">
                 <File Id="SVS2TIFF.exe.config" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.exe.config" />
             </Component>
-            <Component Id="SVS2TIFF.pdb" Guid="{9570814C-913B-493C-9040-B7DCB653B49D}">
+            <Component Id="SVS2TIFF.pdb" Guid="{50BAA38C-4041-4D38-8B7E-A7C8B43E77CC}">
                 <File Id="SVS2TIFF.pdb" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.pdb" />
             </Component>
-            <Component Id="SVS2TIFF.xml" Guid="{35B8664F-0F50-42FB-8CAD-39C2258D5293}">
+            <Component Id="SVS2TIFF.xml" Guid="{CB85640C-D27F-4EB0-A935-683D329C07A9}">
                 <File Id="SVS2TIFF.xml" KeyPath="yes" Source="$(var.BasePath)\SVS2TIFF.xml" />
             </Component>
-            <Component Id="System.Buffers.dll" Guid="{748A4202-F0B0-43CB-8E9E-4F32123C00BA}">
+            <Component Id="System.Buffers.dll" Guid="{CC306FB6-57D4-4C11-BF4B-FF9B4918E027}">
                 <File Id="System.Buffers.dll" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.dll" />
             </Component>
-            <Component Id="System.Buffers.xml" Guid="{969813E2-BC87-4010-8B41-2B9347012781}">
+            <Component Id="System.Buffers.xml" Guid="{D4E944CD-4FFA-4B59-AC25-E5A9A9405AEA}">
                 <File Id="System.Buffers.xml" KeyPath="yes" Source="$(var.BasePath)\System.Buffers.xml" />
             </Component>
         </DirectoryRef>
