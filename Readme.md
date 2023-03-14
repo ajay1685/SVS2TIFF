@@ -36,6 +36,10 @@ Please download the most current version of SVS2TIFF from the releases tab in Gi
 
 ### Usage <a name = "usage"></a>
 
+<p align="center">
+  <img width="400" src=https://user-images.githubusercontent.com/10900214/225036447-1f706b09-0114-441f-ab1b-f75ec7554a45.PNG>
+</p>
+
 * Use SVS2TIFF to convert Aperio SVS files to TIFF or OME-TIFF (.ome.tif).
 * Select the type of compression for the converted files (i.e. lzw, jpeg, jp2k) or leave it "none" for uncompressed data.
 * Check "Write OME-TIFF" check box to write files that readable by BioFormats and hence are compatible with QuPath with additional steps.
@@ -48,4 +52,4 @@ Please contact [Ajay Zalavadia](https://ajay1685.github.io/) at Lerner Research 
 ## Authors
 
 * **Ajay Zalavadia, Ph.D.** - *SVS2TIFF Convert Aperio SVS files to TIFF or OME-TIFF* - [@ajay1685](https://github.com/ajay1685)
-* **Authors of libvips, NetVips and Openslide** - *Thanks for their support and help*
+* **Authors of [libvips](https://github.com/libvips/libvips), [NetVips](https://github.com/kleisauke/net-vips) and [Openslide](https://github.com/openslide/openslide)** - *Thanks for their support and help*
