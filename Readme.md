@@ -42,7 +42,7 @@ Please download the most current version of SVS2TIFF from the releases tab in Gi
 
 * Use SVS2TIFF to convert Aperio SVS files to TIFF or OME-TIFF (.ome.tif).
 * Select the type of compression for the converted files (i.e. lzw, jpeg, jp2k) or leave it "none" for uncompressed data.
-* Check "Write OME-TIFF" check box to write files that readable by BioFormats and hence are compatible with QuPath with additional steps.
+* Check "Write OME-TIFF" check box to write files that are readable by BioFormats and hence are compatible with QuPath with additional steps.
 * Writing OME-TIFF with compression may require you to set the BigTIFF flag to true (check the BigTIFF check box)
 
 ### Contributing <a name = "contributing"></a>
